@@ -23,9 +23,13 @@
     <!-- Icons -->
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/simple-line-icons.css" rel="stylesheet">
-
+    <!--link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css"-->
+    <!--script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script-->
+    <!--script src="bootstrap/dist/js/bootstrap.min.js"></script-->
     <!-- Main styles for this application -->
     <link href="css/estilos.css" rel="stylesheet">
+    <!--script type="text/javascript" src="js/"></script-->
+    <script type="text/javascript" src="js/beacons.js"></script>
 
 </head>
 
@@ -131,7 +135,9 @@
                                                 <th>Major</th>
                                                 <th>Minor</th>
                                                 <th>Marca</th>
-                                                <th>Status</th>
+                                                <th>Carga Bateria</th>
+                                                <th style="text-align: center;">Pausar</th>
+                                                <th style="text-align: center;">Editar</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -141,7 +147,17 @@
                                                 <td>24983</td>
                                                 <td>Estimote</td>
                                                 <td>
-                                                    <span class="badge badge-success">Active</span>
+                                                    <span class="badge badge-success">Cargada</span>
+                                                </td>
+                                                <td style="text-align: center;"> 
+                                                    <button type="button" class="btn btn-secondary" style="text-align:center;">
+                                                        <i class="fa fa-pause-circle"></i>; 
+                                                    </button></td>
+                                                <td style="text-align: center;">
+
+                                                    <button type="button" class="btn btn-secondary">
+                                                        <i class="fa fa-pencil"></i>  
+                                                    </button>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -149,8 +165,19 @@
                                                 <td>57784</td>
                                                 <td>57950</td>
                                                 <td>Estimote</td>
-                                                <td>
-                                                    <span class="badge badge-danger">Banned</span>
+                                                <td >
+                                                    <!--span class="badge badge-success">Activo</span-->
+                                                    <span class="badge badge-danger">Baja</span>
+                                                </td>
+                                                <td style="text-align: center;">
+                                                    <button type="button" class="btn btn-secondary">
+                                                        <i class="fa fa-pause-circle"></i>  
+                                                    </button></td>
+                                                <td style="text-align: center;">
+
+                                                    <button type="button" class="btn btn-secondary">
+                                                        <i class="fa fa-pencil"></i> 
+                                                    </button>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -159,7 +186,18 @@
                                                 <td>49968</td>
                                                 <td>Estimote</td>
                                                 <td>
-                                                    <span class="badge badge-default">Inactive</span>
+                                                    <!--span class="badge badge-default">Inactivo</span-->
+                                                    <span class="badge badge-success">Cargada</span>
+                                                </td>
+                                                <td style="text-align: center;">
+                                                    <button type="button" class="btn btn-secondary">
+                                                        <i class="fa fa-pause-circle"></i>
+                                                    </button></td>
+                                                <td style="text-align: center;">
+                                                  
+                                                    <button type="button" class="btn btn-secondary">
+                                                        <i class="fa fa-pencil"></i>
+                                                    </button>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -168,7 +206,16 @@
                                                 <td>538091</td>
                                                 <td>Accent Systems</td>
                                                 <td>
-                                                    <span class="badge badge-warning">Pending</span>
+                                                    <span class="badge badge-warning">Medio</span>
+                                                </td>
+                                                <td style="text-align: center;">
+                                                    <button type="button" class="btn btn-secondary">
+                                                        <i class="fa fa-pause-circle"></i>
+                                                    </button></td>
+                                                <td style="text-align: center;">
+                                                    <button type="button" class="btn btn-secondary">
+                                                        <i class="fa fa-pencil"></i>
+                                                    </button>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -177,7 +224,17 @@
                                                 <td>92382</td>
                                                 <td>Accent Systems</td>
                                                 <td>
-                                                    <span class="badge badge-success">Active</span>
+                                                    <span class="badge badge-success">Cargada</span>
+                                                </td>
+                                                <td style="text-align: center;">
+                                                    <button type="button" class="btn btn-secondary">
+                                                        <i class="fa fa-pause-circle"></i>
+                                                    </button></td>
+                                                <td style="text-align: center;">
+                                                   
+                                                    <button type="button" class="btn btn-secondary">
+                                                        <i class="fa fa-pencil"></i>
+                                                    </button>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -199,13 +256,35 @@
                                             </li>
                                         </ul>
                                     </nav>
-                                    <button type="button" class="btn btn-primary"><i class="fa fa-bluetooth-b"></i>&nbsp; Registrar Beacons</button>
+                                    <button id="opener" type="button" class="btn btn-primary" style="float: right;"><i class="fa fa-bluetooth-b"></i>&nbsp; Registrar Beacons</button>
                                 </div>
 
                             </div>
                         </div>
                         <!--/.col-->
                     </div>
+                    <div id="beacons" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                                                               TITLE
+                <h4 class="modal-title">Formulario Referidos</h4>
+            </div>
+            <div class="modal-body">
+                CUERPO MODAL
+                <div class="modal-footer">
+                                                               FOOTER
+                    <div id="InformacionCargas" style="width:450px;color:red;float:left"></div>
+                    <input type="button" value="Agendar" class="btn btn-primary" style="float:right;margin-right:5px" id="BtnGuardar" />
+                    <input type="button" value="Salir" class="btn btn-default" data-dismiss="modal" style="float:right;margin-right:5px" id="BtnCancelar" />
+                    <input type="button" value="Iniciar Venta" class="btn btn-default" style="float: right" disabled="disabled" id="BtnIniciarVenta" />
+                    <input type="hidden" id="RutReferido"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
         </main>
 
         <aside class="aside-menu">
